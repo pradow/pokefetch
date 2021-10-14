@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 function Search() {
   const router = useRouter();
   const [fetchedData, setFetchedData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   let url = "https://pokeapi.co/api/v2/pokemon/";
 
   async function fetchData(searchTerm) {
@@ -12,8 +13,10 @@ function Search() {
       const data = await response.json();
       console.log(data);
       setFetchedData(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   }
 
@@ -22,6 +25,10 @@ function Search() {
       fetchData(router.query.pokemon);
     }
   }, [router.query]);
+
+  if (isLoading) {
+    return <h2>...Loading</h2>;
+  }
 
   if (fetchedData.length < 1) {
     return <h1>no results</h1>;
