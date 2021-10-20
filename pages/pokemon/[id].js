@@ -16,7 +16,7 @@ function Pokemon() {
   return (
     <div>
       <h1>Pokemon {data.name}</h1>
-      <img src={data.sprites.front_default} alt="" />
+      <img src={data.sprites.front_default} alt={data.name} />
     </div>
   );
 }
