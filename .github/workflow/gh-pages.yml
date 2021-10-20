@@ -1,39 +1,25 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+name: CI
+on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Git checkout
+        uses: actions/checkout@v2
 
-      - name: Installing my packages
-        run: npm ci
+      - name: install packages
+        run: npm install
 
-      - name: Build my App
+      - name: Build
         run: npm run build
-      - run: npm run export
+        run: npm run export
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.5.9
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: out # The folder the action should deploy.
+          personal_token: ${{ secrets.TOKEN }}
+          external_repository: pradow/pokefetch
+          publish_dir: ./out
+          user_name: pradow
+          user_email: pradochris+pradow@protonmail.com
+          publish_branch: gh-pages
