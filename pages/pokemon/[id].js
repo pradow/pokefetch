@@ -13,7 +13,12 @@ function Pokemon() {
     return <h2>...Loading</h2>;
   }
 
-  return <h1>Pokemon {data.name}</h1>;
+  return (
+    <div>
+      <h1>Pokemon {data.name}</h1>
+      <img src={data.sprites.front_default} alt="" />
+    </div>
+  );
 }
 
 export default Pokemon;
