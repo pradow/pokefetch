@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -46,7 +47,7 @@ export default function Home() {
               </div>
               <div className="hero-right">
                 <img
-                  src="/images/pokeball.png"
+                  src="/pokefetch/images/pokeball.png"
                   alt="Pokemon Pokeball"
                   className="hero-image"
                 />
