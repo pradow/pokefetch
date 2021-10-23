@@ -4,8 +4,8 @@ import CharacterInfo from "./CharacterInfo";
 
 function Pokemon() {
   const router = useRouter();
-  let url = router.query.id
-    ? `https://pokeapi.co/api/v2/pokemon/${router.query.id}`
+  let url = router.query.name
+    ? `https://pokeapi.co/api/v2/pokemon/${router.query.name}`
     : null;
 
   const { isLoading, data } = useFetch(url);
