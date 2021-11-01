@@ -19,9 +19,9 @@ function Search() {
 
   return (
     <div>
-      {matchArr.map((item) => {
+      {matchArr.map((item, index) => {
         return (
-          <h5 data-pokemon={item.name} onClick={handleClick}>
+          <h5 key={index} data-pokemon={item.name} onClick={handleClick}>
             {item.name}
           </h5>
         );
