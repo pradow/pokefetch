@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { pokemonNames } from "../shared/pokemonNames";
 
 function Search() {
@@ -8,11 +9,6 @@ function Search() {
     item.name.includes(searchString)
   );
 
-  const handleClick = (e) => {
-    const clickedPokemon = e.currentTarget.dataset.pokemon;
-    alert(clickedPokemon);
-  };
-
   if (matchArr < 1) {
     return <h1>no results</h1>;
   }
@@ -21,9 +17,11 @@ function Search() {
     <div>
       {matchArr.map((item, index) => {
         return (
-          <h5 key={index} data-pokemon={item.name} onClick={handleClick}>
-            {item.name}
-          </h5>
+          <Link href={`/pokemon?name=${item.name}`}>
+            <a>
+              <h5>{item.name}</h5>
+            </a>
+          </Link>
         );
       })}
     </div>
