@@ -16,7 +16,7 @@ function Search() {
   }
 
   return (
-    <div>
+    <div className="search-content">
       {matchArr.map((item, index) => {
         const pokemonId = item.url
           .slice(item.url.indexOf("/pokemon/"))
@@ -24,12 +24,13 @@ function Search() {
 
         return (
           <Link href={`/pokemon?name=${item.name}`}>
-            <a>
-              <h5>{item.name}</h5>
+            <a className="search-item">
               <img
+                className="search-image"
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-                alt=""
+                alt={`pokemon character ${item.name}`}
               />
+              <h5 className="search-title">{item.name}</h5>
             </a>
           </Link>
         );
