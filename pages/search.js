@@ -25,12 +25,14 @@ function Search() {
         return (
           <Link href={`/pokemon?name=${item.name}`}>
             <a className="search-item">
-              <img
-                className="search-image"
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-                alt={`pokemon character ${item.name}`}
-              />
-              <h5 className="search-title">{item.name}</h5>
+              <div className="search-item-inner">
+                <img
+                  className="search-image"
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
+                  alt={`pokemon character ${item.name}`}
+                />
+                <h5 className="search-title">{item.name}</h5>
+              </div>
             </a>
           </Link>
         );
