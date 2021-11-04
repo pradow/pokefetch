@@ -23,7 +23,7 @@ function Search() {
           .slice(9, -1);
 
         return (
-          <Link href={`/pokemon?name=${item.name}`}>
+          <Link key={pokemonId} href={`/pokemon?name=${item.name}`}>
             <a className="search-item">
               <div className="search-item-inner">
                 <img
