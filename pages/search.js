@@ -9,8 +9,6 @@ function Search() {
     item.name.includes(searchString)
   );
 
-  console.log(matchArr);
-
   if (matchArr < 1) {
     return (
       <div className="search-content no-results">
