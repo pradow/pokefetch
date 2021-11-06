@@ -11,8 +11,8 @@ function CharacterInfo({ data }) {
   if (category === "abilities") {
     return (
       <div>
-        {data[category].map((el) => {
-          return <h5>{el.ability.name}</h5>;
+        {data[category].map((el, i) => {
+          return <h5 key={i}>{el.ability.name}</h5>;
         })}
       </div>
     );
@@ -21,8 +21,8 @@ function CharacterInfo({ data }) {
   if (category === "held_items") {
     return (
       <div>
-        {data[category].map((el) => {
-          return <h5>{el.item.name}</h5>;
+        {data[category].map((el, i) => {
+          return <h5 key={i}>{el.item.name}</h5>;
         })}
       </div>
     );
@@ -31,8 +31,8 @@ function CharacterInfo({ data }) {
   if (category === "moves") {
     return (
       <div>
-        {data[category].map((el) => {
-          return <h5>{el.move.name}</h5>;
+        {data[category].map((el, i) => {
+          return <h5 key={i}>{el.move.name}</h5>;
         })}
       </div>
     );
@@ -41,9 +41,9 @@ function CharacterInfo({ data }) {
   if (category === "stats") {
     return (
       <div>
-        {data[category].map((el) => {
+        {data[category].map((el, i) => {
           return (
-            <h5>
+            <h5 key={i}>
               {el.stat.name}
               {el.base_stat}
             </h5>
@@ -60,9 +60,9 @@ function CharacterInfo({ data }) {
   if (category === "game_indices") {
     return (
       <div>
-        {data[category].map((el) => {
+        {data[category].map((el, i) => {
           return (
-            <h5>
+            <h5 key={i}>
               {el.game_index}
               {el.version.name}
             </h5>
